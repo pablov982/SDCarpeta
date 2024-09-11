@@ -1,0 +1,38 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    /* Asegura que el componente tome todo el espacio disponible */
+}
+
+.p-card {
+    width: 30%;
+    height: 70%;
+    margin: 0 auto;
+    padding: 2%;
+    background: radial-gradient(circle, rgb(255, 255, 255) 36%, rgb(185, 206, 243) 161%);
+
+    &--title {
+        text-align: center;
+    }
+}
+
+.p-label {
+    margin-top: 5%;
+}
+
+.p-button {
+    display: flex;
+    margin-top: 5%;
+    align-items: flex-end;
+    justify-content: right;
+    right: 0;
+
+    &--formBtn {
+        width: 40%;
+        background-color: #0b21ef;
+        color: white;
+        border-radius: 50px;
+    }
+}

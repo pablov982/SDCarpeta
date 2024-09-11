@@ -1,0 +1,16 @@
+.p-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    &--login{
+        width: 50%;
+    }
+
+}
+
+.p-image-init {
+    background: url('../../assets/carpetaCiudadana.avif') no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}

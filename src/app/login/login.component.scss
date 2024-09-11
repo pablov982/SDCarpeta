@@ -1,0 +1,44 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  /* Asegura que el componente tome todo el espacio disponible */
+}
+
+.p-card {
+  width: 90%;
+  height: 90%;
+  margin: 0 auto;
+  padding: 2%;
+  background-image: linear-gradient(rgb(171, 200, 250), rgb(255, 255, 255));
+
+  &--title {
+    margin-top: 30%;
+    text-align: center;
+  }
+}
+
+.p-label {
+  margin-top: 5%;
+}
+
+.p-button {
+  display: flex;
+  margin-top: 5%;
+  align-items: flex-end;
+  justify-content: space-between;
+  right: 0;
+
+  &--formBtn {
+    width: 40%;
+    background-color: #0b21ef;
+    color: white;
+    border-radius: 50px;
+  }
+}
+
+.p-container-form {
+  margin: 10% auto;
+  width: 75%;
+}

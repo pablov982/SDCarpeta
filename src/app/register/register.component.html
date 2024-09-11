@@ -1,0 +1,19 @@
+<div class="card p-card">
+    <h1 class="p-card--title">Registro</h1>
+    <form [formGroup]="registerForm" action="">
+        <label class="p-label" for="">Nombre</label>
+        <input class="form-control" type="text" formControlName="name">
+        <label class="p-label" for="">documento</label>
+        <input class="form-control" type="text" formControlName="document">
+        <label class="p-label" for="">Correo</label>
+        <input class="form-control" type="text" formControlName="email">
+        <label class="p-label" for="">Contraseña</label>
+        <input class="form-control" type="text" formControlName="password">
+        <label class="p-label" for="">Verificar contraseña</label>
+        <input class="form-control" type="text" formControlName="confirmPassword">
+        <div class="p-button">
+            <button class="btn p-button--formBtn" (click)="register()">Registrar</button>
+        </div>
+    </form>
+    <a href="/login" style="text-decoration: none;">Iniciar sesión</a>
+</div>

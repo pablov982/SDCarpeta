@@ -1,0 +1,15 @@
+    <div class="card p-card">
+        <h1 class="p-card--title">Inicio de sesión</h1>
+        <div class="p-container-form">
+            <form [formGroup]="loginform" action="">
+                <label class="p-label" for="">Correo</label>
+                <input class="form-control" type="text" formControlName="email">
+                <label class="p-label" for="">Contraseña</label>
+                <input class="form-control" type="text" formControlName="password">
+                <div class="p-button">
+                    <a href="/register" style="text-decoration: none;">Registrarse</a>
+                    <button class="btn p-button--formBtn" (click)="login()">Iniciar sesión</button>
+                </div>
+            </form>
+        </div>
+    </div>
