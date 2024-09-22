@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 
@@ -10,6 +10,7 @@ import { FormGroup } from '@angular/forms';
 export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup
+  @Output() goToLogin = new EventEmitter()
 
   constructor() { }
 
@@ -28,6 +29,10 @@ export class RegisterComponent implements OnInit {
 
   register(){
     window.alert('Registro efetuado correctamente')
+  }
+
+  goToLoginMethod(){
+    this.goToLogin.emit(true)
   }
 
 }

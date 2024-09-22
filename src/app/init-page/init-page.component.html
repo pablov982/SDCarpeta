@@ -2,6 +2,6 @@
     <div class="p-image-init">
 
     </div>
-    <app-login class="p-container--login" *ngIf="login"></app-login>
-    <app-register *ngIf="register"></app-register>
+    <app-login class="p-container--login" (goToRegister)="register = !register; login = !login" *ngIf="login"></app-login>
+    <app-register class="p-container--login" (goToLogin)="register = !register; login = !login" *ngIf="register"></app-register>
 </div>

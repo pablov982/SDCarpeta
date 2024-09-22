@@ -7,7 +7,7 @@
                 <label class="p-label" for="">Contraseña</label>
                 <input class="form-control" type="text" formControlName="password">
                 <div class="p-button">
-                    <a href="/register" style="text-decoration: none;">Registrarse</a>
+                    <a style="text-decoration: none;" (click)="goToRegisterMethod()">Registrarse</a>
                     <button class="btn p-button--formBtn" (click)="login()">Iniciar sesión</button>
                 </div>
             </form>

@@ -1,0 +1,31 @@
+<div class="p-container">
+    <div class="header">
+        <div>
+            <h1 class="title">Mi Carpeta</h1>
+        </div>
+    </div>
+    <div class="container-content">
+        <div class="sidebar">
+                <button class="btn sidebar--btn" (click)="showScreen(1)">
+                    <i class="fa-solid fa-file"></i>
+                    Documentos
+                </button>
+                <button class="btn sidebar--btn" (click)="showScreen(2)">
+                    <i class="fa-solid fa-rotate"></i>
+                    Sincronización
+                </button>
+                <button class="btn sidebar--btn" (click)="showScreen(3)">
+                    <i class="fa-solid fa-download"></i>
+                    Transferencia
+                </button>
+                <button class="btn sidebar--btn" (click)="showScreen(1)"></button>
+        </div>
+        <div class="content">
+            <app-documents *ngIf="documents"></app-documents>
+            <app-sync *ngIf="sync"></app-sync>
+            <app-transfer *ngIf="transfer"></app-transfer>
+        </div>
+    </div>
+        
+    
+</div>

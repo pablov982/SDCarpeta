@@ -7,13 +7,21 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InitPageComponent } from './init-page/init-page.component';
+import { HomeComponent } from './home/home.component';
+import { DocumentsComponent } from './documents/documents.component';
+import { SyncComponent } from './sync/sync.component';
+import { TransferComponent } from './transfer/transfer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    InitPageComponent
+    InitPageComponent,
+    HomeComponent,
+    DocumentsComponent,
+    SyncComponent,
+    TransferComponent
   ],
   imports: [
     BrowserModule,
