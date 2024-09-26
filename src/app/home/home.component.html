@@ -18,12 +18,16 @@
                     <i class="fa-solid fa-download"></i>
                     Transferencia
                 </button>
-                <button class="btn sidebar--btn" (click)="showScreen(1)"></button>
+                <button class="btn sidebar--btn" (click)="showScreen(4)">
+                    <i class="fa-solid fa-folder"></i>
+                    Carpetas
+                </button>
         </div>
         <div class="content">
             <app-documents *ngIf="documents"></app-documents>
             <app-sync *ngIf="sync"></app-sync>
             <app-transfer *ngIf="transfer"></app-transfer>
+            <app-folders *ngIf="folders"></app-folders>
         </div>
     </div>
         

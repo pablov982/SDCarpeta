@@ -10,6 +10,7 @@ export class HomeComponent implements OnInit {
   documents = true
   sync = false
   transfer = false
+  folders = false
 
   constructor() { }
 
@@ -22,16 +23,25 @@ export class HomeComponent implements OnInit {
         this.documents = true
         this.sync = false
         this.transfer = false
+        this.folders = false
         break
       case 2:
         this.documents = false
         this.sync = true
         this.transfer = false
+        this.folders = false
         break
       case 3:
         this.documents = false
         this.sync = false
         this.transfer = true
+        this.folders = false
+        break
+      case 4:
+        this.documents = false
+        this.sync = false
+        this.transfer = false
+        this.folders = true
         break
     }
   }

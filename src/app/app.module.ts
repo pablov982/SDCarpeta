@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { DocumentsComponent } from './documents/documents.component';
 import { SyncComponent } from './sync/sync.component';
 import { TransferComponent } from './transfer/transfer.component';
+import { FoldersComponent } from './folders/folders.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { TransferComponent } from './transfer/transfer.component';
     HomeComponent,
     DocumentsComponent,
     SyncComponent,
-    TransferComponent
+    TransferComponent,
+    FoldersComponent
   ],
   imports: [
     BrowserModule,

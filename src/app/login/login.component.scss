@@ -11,16 +11,18 @@
   height: 90%;
   margin: 0 auto;
   padding: 2%;
-  background-image: linear-gradient(rgb(171, 200, 250), rgb(255, 255, 255));
+  background-image: linear-gradient(#244063, rgb(255, 255, 255));
 
   &--title {
     margin-top: 30%;
     text-align: center;
+    color: white;
   }
 }
 
 .p-label {
   margin-top: 5%;
+  font-size: bold;
 }
 
 .p-button {
@@ -41,4 +43,10 @@
 .p-container-form {
   margin: 10% auto;
   width: 75%;
+}
+
+.register{
+  text-decoration: none;
+  cursor: pointer;
+  color: #071ffa;
 }

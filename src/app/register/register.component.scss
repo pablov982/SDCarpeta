@@ -7,26 +7,29 @@
 }
 
 .p-card {
-    width: 30%;
-    height: 70%;
+    width: 90%;
+    height: 90%;
     margin: 0 auto;
     padding: 2%;
-    background: radial-gradient(circle, rgb(255, 255, 255) 36%, rgb(185, 206, 243) 161%);
+    background-image: linear-gradient(#244063, rgb(255, 255, 255));
 
     &--title {
+        margin-top: 20%;
         text-align: center;
+        color: white;
     }
 }
 
 .p-label {
     margin-top: 5%;
+    font-size: bold;
 }
 
 .p-button {
     display: flex;
     margin-top: 5%;
     align-items: flex-end;
-    justify-content: right;
+    justify-content: space-between;
     right: 0;
 
     &--formBtn {
@@ -35,4 +38,15 @@
         color: white;
         border-radius: 50px;
     }
+}
+
+.p-container-form {
+    margin: 5% auto;
+    width: 75%;
+}
+
+.login {
+    text-decoration: none;
+    cursor: pointer;
+    color: #071ffa;
 }
