@@ -6,6 +6,7 @@
               <th scope="col">#</th>
               <th scope="col">Documento</th>
               <th scope="col">Carpeta</th>
+              <th scope="col">Autorización</th>
               <th scope="col">Acciones</th>
             </tr>
           </thead>
@@ -14,9 +15,13 @@
               <th scope="row">{{ i + 1 }}</th>
               <td>{{item.name}}</td>
               <td>{{item.folder}}</td>
+              <td>{{item.auth}}</td>
               <td>
-                <i class="fa-solid fa-trash-can" matTooltip="Eliminar"></i>
-                <i class="fa-solid fa-eye"></i>
+                <div style="display: flex; justify-content: space-between;">
+                  <i class="fa-solid fa-trash-can" data-toggle="tooltip" data-placement="top" title="Eliminar" (click)="openNotify()"></i>
+                  <i class="fa-solid fa-eye" data-toggle="tooltip" data-placement="top" title="Ver"></i>
+                  <i class="fa-solid fa-square-check" data-toggle="tooltip" data-placement="top" title="Certificar"></i>
+                </div>
               </td>
             </tr>
           </tbody>

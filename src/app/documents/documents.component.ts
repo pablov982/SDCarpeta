@@ -1,5 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NotificationService } from '../notification/notification.service';
+import { NotifyOpts } from '../notification/notification.model';
 
 @Component({
   selector: 'app-documents',
@@ -15,27 +17,31 @@ export class DocumentsComponent implements OnInit {
     {
       name: 'Documento 1',
       folder: 'Carpeta 1',
+      auth: 'no',
       url: 'https://www.google.com'
     },
     {
       name: 'Documento 2',
       folder: 'Carpeta 2',
+      auth: 'si',
       url: 'https://www.google.com'
     },
     {
       name: 'Documento 3',
       folder: 'Carpeta 1',
+      auth: 'si',
       url: 'https://www.google.com'
     },
     {
       name: 'Documento 4',
       folder: 'Carpeta 2',
+      auth: 'si',
       url: 'https://www.google.com'
     }
   ]
   
 
-  constructor(private fb: FormBuilder) { 
+  constructor(private fb: FormBuilder, private notify: NotificationService) { 
     this.uploadForm = this.fb.group({
       documentName: ['', Validators.required],  // Campo de nombre de documento obligatorio
     });
@@ -55,12 +61,10 @@ export class DocumentsComponent implements OnInit {
     }
   }
 
-  // Evitar que el navegador abra el archivo al arrastrar
   onDragOver(event: DragEvent): void {
     event.preventDefault();
   }
 
-  // Agregar archivos cuando se sueltan
   onDrop(event: DragEvent): void {
     event.preventDefault();
     if (event.dataTransfer?.files) {
@@ -68,7 +72,6 @@ export class DocumentsComponent implements OnInit {
     }
   }
 
-  // Resetear el estilo cuando se sale del área
   onDragLeave(event: DragEvent): void {
     event.preventDefault();
   }
@@ -78,14 +81,25 @@ export class DocumentsComponent implements OnInit {
       const formData = new FormData();
       formData.append('documentName', this.uploadForm.get('documentName')?.value);
       
-      // Agregar los archivos seleccionados al formData
       this.files.forEach(file => {
         formData.append('files', file);
       });
 
-      // Aquí podrías enviar el formData a tu servidor o manejarlo como desees
       console.log('Formulario enviado:', formData);
     }
+  }
+
+  openNotify(){
+debugger
+    let notificacion: NotifyOpts = {
+      title:'notificación',
+      message: 'Prueba de la notificación',
+      icon:'info'
+
+    }
+
+    this.notify.open(notificacion)
+
   }
 
 }
