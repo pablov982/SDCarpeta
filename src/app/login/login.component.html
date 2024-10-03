@@ -2,10 +2,11 @@
         <h1 class="p-card--title">Inicio de sesión</h1>
         <div class="p-container-form">
             <form [formGroup]="loginform" action="">
-                <label class="p-label" for="">Correo</label>
-                <input class="form-control" type="text" formControlName="email">
+                <label class="p-label" for="">Documento</label>
+                <input class="form-control" type="text" formControlName="document">
                 <label class="p-label" for="">Contraseña</label>
-                <input class="form-control" type="text" formControlName="password">
+                <input class="form-control" [type]="typeInput" formControlName="password">
+                <i class="fa-solid fa-eye see-password" title="Ver" (click)="changeTypeInput()"></i>
                 <div class="p-button">
                     <a class="register" style="text-decoration: none;" (click)="goToRegisterMethod()">Registrarse</a>
                     <button class="btn p-button--formBtn" (click)="login()">Iniciar sesión</button>

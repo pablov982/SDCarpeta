@@ -1,0 +1,22 @@
+<div #backdrop class="sc-backdrop sc-backdrop--{{type}}" *ngIf="showNotify" (click)="close()" (keydown.esc)="close()" tabindex="0"></div>
+<div class="sc-notify sc-notify--{{type}}" >
+  <div #notify class="card sc-card-container sc-card-container--notify col-xs-9 col-sm-6 col-md-4 col-lg-4 col-xl-4" [ngClass]="{'hide': !showNotify }">
+    <div class="card-body p-2">
+      <button class="btn sc-modal-container--btn-close" (click)="close()"></button>
+      <div class="sc-icon {{ icon$ | async}}"></div>
+      <h1 class="mt-3 sc-card-container__title sc-card-container__title--{{type$ | async }} qa-title-notify" [innerHTML]="title$ | async">
+        {{ title$ | async }}
+      </h1>
+      <p class="sc-card-container__content qa-notify-content mt-1" [innerHTML]="message$ | async">
+      </p>
+    </div>
+    <div class="card-footer sc-card-container__footer sc-card-container__footer--small d-flex flex-row  justify-content-center">
+      <button type="button" class="btn btn-notify qa-notify-btn-cancel btn-notify--cancel mr-2" (click)="close()" *ngIf="hasCancel">
+        {{btnCancelName}}
+      </button>
+      <button type="button" class="btn btn-primary btn-notify qa-notify-btn-accept "  (click)="accept();" *ngIf="hasAccept">
+        {{btnAcceptName}}
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,194 @@
+.sc-card-container{
+    &__title{
+      font-weight: bold;
+      color: rgb(44, 42, 41);
+    }
+  }
+  
+  .sc-card-container {
+    margin-bottom: 5%;
+    border-radius: 10px;
+    padding-top: 10%;
+    padding-left: 7.5%;
+    padding-right: 7.5%;
+    color: rgb(83, 83, 83);
+  
+    &--notify {
+      margin: 0 auto;
+      padding-top: 2%;
+      padding-bottom: 0;
+      padding-left: 3%;
+      padding-right: 3%;
+      width: 440px;
+      .card-body {
+        padding-top: 5%;
+        padding-left: 0%;
+        padding-right: 0%;
+      }
+      .card-body__close {
+        position: absolute;
+        right: 5%;
+        top: 5%;
+        display: block;
+        background-color: #00369c;
+        line-height: 0;
+        padding: 3.3% 2.5%;
+        border-radius: 100%;
+        color: white;
+        font-weight: 500;
+        cursor: pointer;
+      }
+    }
+  
+    &__footer {
+      background: none;
+      border-top: 0;
+      padding: 0;
+      margin-bottom: 14%;
+      text-align: center;
+      &--small {
+        margin-bottom: 13%;
+      }
+    }
+  
+    &__title {
+      color: rgb(44, 42, 41);
+      font-size: ( 1.33rem );
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 0;
+      &--noCamera{
+        padding-bottom: 4%;
+      }
+      &--camera, &--recovery-password{
+        margin-bottom: 5%;
+      }
+    }
+  
+  
+    &__title--error, &__title--resend-email {
+      color: rgb(44, 42, 41);
+      font-size: ( 1.33rem );
+      margin-bottom: 5%;
+    }
+  
+    &__title--info, &__title--confirm,
+    &__title--email{
+      color: rgb(44, 42, 41);
+      font-size: ( 1.33rem );
+      margin-bottom: 5%;
+    }
+  
+    &__title--success {
+      color: rgb(44, 42, 41);
+      font-size: ( 1.33rem );
+      margin-bottom: 5%;
+    }
+  
+    &__title--check{
+      color: rgb(167, 191, 48);
+      font-size: ( 1.33rem );
+      margin-bottom: 5%;
+    }
+  
+    &__subtitle {
+      font-size: ( 1rem );
+      font-weight: 400;
+  
+      &--secondary {
+        color: #00369c;
+        font-size: ( 1rem );
+        margin-bottom: 10%;
+        line-height: 1.2;
+      }
+    }
+  
+    &__content {
+      font-size: (0.88rem);
+      color: rgb(44, 42, 41);
+      text-align: center;
+    }
+  
+    &__info{
+      line-height: 1.2;
+    }
+  }
+  
+  
+  .sc-modal-container{
+    &--btn-close{
+      position: absolute;
+      right: 1%;
+      top: 1%;
+      display: block;
+      background-image: url('../../assets/sc-icon-close.png');
+      background-position: center center;
+      background-repeat: no-repeat;
+      padding: 1.3em;
+      z-index: 52;
+    }
+  }
+  
+  .sc-notify {
+    position: fixed;
+    top: 26%;
+    z-index: 51;
+    width: 100%;
+    height: 0;
+  
+    &--email {
+      top: 16%;
+    }
+  }
+  
+  .sc-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 51;
+    width: 100vw;
+    height: 100vh;
+    background: rgb(44 42 41 / 80%);
+  }
+  
+  hr.sc-divider-line {
+    background-color: #A2B4CC;
+    opacity: 35%;
+    height: 1px;
+    margin-bottom: 10px;
+  }
+  
+  .btn:focus {
+    box-shadow: none;
+  }
+  
+  .btn-primary:not(:disabled):not(.disabled):active:focus,
+  .btn-primary:not(:disabled):not(.disabled).active:focus,
+  .show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: none;
+  }
+  
+  .btn-notify {
+    font-weight: bold;
+    background: rgb(0, 54, 156);
+    color: white;
+    border-radius: 25px;
+    padding: 10px 24px;
+    font-size: 0.88rem;
+    &--cancel{
+      background-color: white;
+      color: rgb(0, 54, 156);
+      border: none;
+    }
+  
+    &--cancel:hover{
+      user-select: none;
+      color: rgb(0, 54, 156) !important;
+      background: var(--primary-sc-dark-blue-40, #B5D1FF) !important;
+      border:  1px solid rgb(0, 54, 156) !important;
+    }
+  }
+  
+  .hide {
+    display: none;
+  }

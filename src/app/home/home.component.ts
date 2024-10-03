@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
   sync = false
   transfer = false
   folders = false
+  request = false
 
   constructor() { }
 
@@ -24,24 +25,35 @@ export class HomeComponent implements OnInit {
         this.sync = false
         this.transfer = false
         this.folders = false
+        this.request = false
         break
       case 2:
         this.documents = false
         this.sync = true
         this.transfer = false
         this.folders = false
+        this.request = false
         break
       case 3:
         this.documents = false
         this.sync = false
         this.transfer = true
         this.folders = false
+        this.request = false
         break
       case 4:
         this.documents = false
         this.sync = false
         this.transfer = false
         this.folders = true
+        this.request = false
+        break
+      case 5:
+        this.documents = false
+        this.sync = false
+        this.transfer = false
+        this.folders = false
+        this.request = true
         break
     }
   }

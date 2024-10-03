@@ -4,17 +4,24 @@
         <form [formGroup]="registerForm" action="">
             <label class="p-label" for="">Nombre</label>
             <input class="form-control" type="text" formControlName="name">
-            <label class="p-label" for="">documento</label>
+            <label class="p-label" for="">Documento</label>
             <input class="form-control" type="text" formControlName="document">
             <label class="p-label" for="">Correo</label>
             <input class="form-control" type="text" formControlName="email">
-            <label class="p-label" for="">Contraseña</label>
-            <input class="form-control" type="text" formControlName="password">
-            <label class="p-label" for="">Verificar contraseña</label>
-            <input class="form-control" type="text" formControlName="confirmPassword">
+            <div>
+                <label class="p-label" for="">Contraseña</label>
+                <input class="form-control" [type]="typeInput" formControlName="password">
+                <i class="fa-solid fa-eye see-password" title="Ver" (click)="changeTypeInput()"></i>
+            </div>
+            <div>
+                <label class="p-label" for="">Verificar contraseña</label>
+                <input class="form-control" [type]="typeInput" formControlName="confirmPassword">
+                <i class="fa-solid fa-eye see-password" title="Ver" (click)="changeTypeInput()"></i>
+            </div>
+
             <div class="p-button">
                 <a (click)="goToLoginMethod()" class="login">Iniciar sesión</a>
-                <button class="btn p-button--formBtn" (click)="register()">Registrar</button>
+                <button class="btn p-button--formBtn" (click)="registerUserMethod()">Registrar</button>
             </div>
         </form>
     </div>

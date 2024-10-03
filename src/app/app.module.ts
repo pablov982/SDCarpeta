@@ -12,6 +12,11 @@ import { DocumentsComponent } from './documents/documents.component';
 import { SyncComponent } from './sync/sync.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { FoldersComponent } from './folders/folders.component';
+import { RequestComponent } from './request/request.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { NotificationComponent } from './notification/notification.component'
+import { CoreModule } from './core/core.module';
+import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
 
 @NgModule({
   declarations: [
@@ -23,14 +28,20 @@ import { FoldersComponent } from './folders/folders.component';
     DocumentsComponent,
     SyncComponent,
     TransferComponent,
-    FoldersComponent
+    FoldersComponent,
+    RequestComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    CoreModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

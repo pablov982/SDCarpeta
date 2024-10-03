@@ -1,0 +1,31 @@
+.sc-container {
+    &__loading {
+      height: 100%;
+      width: 100%;
+      background-color: rgba(18, 40, 76, 0.8);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      overflow: show;
+      margin: auto;
+      position: fixed;
+    }
+  
+    &__content {
+      display: block;
+      text-align: center;
+      
+    }
+
+    &__content-image {
+        width: 20%;
+        @media (max-width: 508px) {
+            width: 40%;
+        }
+    }
+  }
