@@ -17,7 +17,6 @@ export class LoadingInterceptor implements HttpInterceptor {
   constructor( private loadingService: LoadingService ) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    debugger
     this.loadingStarted = this.loadingService.isStarted();
 
     if ( !this.loadingStarted ) {

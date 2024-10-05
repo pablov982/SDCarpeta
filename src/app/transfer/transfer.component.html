@@ -1,1 +1,16 @@
-<h1 class="title">TRANSFERENCIAS</h1>
+<div class="p-container">
+    <h1 class="title">TRANSFERENCIAS</h1>
+    <p class="p-description-transfer">Todos tus datos personales y documentos serán transferidos al operador seleccionado, ten en cuenta que en 
+        <strong>Archivo Fiel</strong>  ya no tendras la posibilidad de visualizar tus documentos, pero no te preocupes, podrás visualizarlos en el
+        nuevo operador que selecciones.</p>
+    <div class="div-form">
+        <form action="" [formGroup]="formTransfer">
+            <label for="">Listado operadores</label>
+            <select class="form-control p-select" name="" id="" formControlName="operator">
+                <option [ngValue]="null" disabled selected>Seleccione el operador</option>
+                <option *ngFor="let item of listOperators" [value]="item._id">{{item.operatorName}}</option>
+            </select>
+            <button class="btn div-form--btn" (click)="transFerUser()" [disabled]="!formTransfer.valid">Transferir</button>
+        </form>
+    </div>
+</div>

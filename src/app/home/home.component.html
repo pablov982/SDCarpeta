@@ -1,7 +1,7 @@
 <div class="p-container">
     <div class="header">
         <div>
-            <h1 class="title">Mi Carpeta</h1>
+            <h1 class="title">Archivo Fiel</h1>
         </div>
     </div>
     <div class="container-content">
@@ -15,7 +15,7 @@
                 Sincronización
             </button>
             <button class="btn sidebar--btn" (click)="showScreen(3)">
-                <i class="fa-solid fa-download"></i>
+                <i class="fa-solid fa-right-left"></i>
                 Transferencia
             </button>
             <button class="btn sidebar--btn" (click)="showScreen(4)">
@@ -23,8 +23,13 @@
                 Carpetas
             </button>
             <button class="btn sidebar--btn" (click)="showScreen(5)">
-            <i class="fa-solid fa-code-pull-request"></i>
-            Solicitudes
+                <i class="fa-solid fa-code-pull-request"></i>
+                Solicitudes
+            </button>
+
+            <button class="btn sidebar--btn sidebar--btn--logout" (click)="logout()">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Cerrar sesión
             </button>
         </div>
         <div class="content">

@@ -5,7 +5,13 @@
 }
 
 .div-table{
-    margin: 5%;
+    margin: 2% 5%;
+    max-height: 25%;
+    overflow-x: auto;
+}
+.p-table{
+  width: 100%;
+  table-layout: fixed;
 }
 
 .div-form{
@@ -68,4 +74,12 @@
         background-color: #244063;
         border: #244063;
     }
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  i {
+    cursor: pointer;
   }

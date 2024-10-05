@@ -1,66 +1,75 @@
 <h1 class="title">LISTADO DE DOCUMENTOS</h1>
 <div class="div-table">
-    <table class="table table-striped table-hover">
-        <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Documento</th>
-              <th scope="col">Carpeta</th>
-              <th scope="col">Autorización</th>
-              <th scope="col">Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of data let i = index">
-              <th scope="row">{{ i + 1 }}</th>
-              <td>{{item.name}}</td>
-              <td>{{item.folder}}</td>
-              <td>{{item.auth}}</td>
-              <td>
-                <div style="display: flex; justify-content: space-between;">
-                  <i class="fa-solid fa-trash-can" data-toggle="tooltip" data-placement="top" title="Eliminar" (click)="openNotify()"></i>
-                  <i class="fa-solid fa-eye" data-toggle="tooltip" data-placement="top" title="Ver"></i>
-                  <i class="fa-solid fa-square-check" data-toggle="tooltip" data-placement="top" title="Certificar"></i>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-    </table>
+  <table class="table table-striped table-hover p-table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Documento</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Autorización</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listDocuments let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{item.documentName}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.isVerified}}</td>
+        <td>
+          <div style="display: flex; justify-content: space-between;">
+            <i class="fa-solid fa-trash-can" data-toggle="tooltip" data-placement="top" title="Eliminar"></i>
+            <i class="fa-solid fa-eye" data-toggle="tooltip" data-placement="top" title="Ver"></i>
+            <i class="fa-solid fa-square-check" data-toggle="tooltip" data-placement="top" title="Verificar" (click)="verifyDocument(item.documentId)"></i>
+            <a [href]="item.downloadLink" style="text-decoration: none;"><i class="fa-solid fa-download" data-toggle="tooltip" data-placement="top" title="Descargar"></i></a>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 
-<div class="container mt-5">
+<div class="container">
   <h3 class="text-center">Cargar Documentos</h3>
 
   <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
     <div class="form-group div-form">
       <label for="docName">Nombre del documento</label>
       <input type="text" id="docName" class="form-control div-form--name" formControlName="documentName">
+      <label for="description">Descripción</label>
+      <input type="text" id="description" class="form-control div-form--name" formControlName="description">
     </div>
 
-    <div 
-      class="drag-drop-box" 
-      (dragover)="onDragOver($event)" 
-      (drop)="onDrop($event)" 
+    <div class="drag-drop-box" (dragover)="onDragOver($event)" (drop)="onDrop($event)"
       (dragleave)="onDragLeave($event)">
       <div class="icon">
         <i class="fas fa-cloud-upload-alt"></i>
       </div>
       <p class="text-center">Arrastra y suelta los archivos aquí o</p>
-      
-      <button type="button" class="btn btn-secondary drag-drop-box--btn" (click)="triggerFileInput()">Selecciona archivo</button>
 
-      <input type="file" #fileInput (change)="onFileSelected($event)" multiple style="display:none;" />
+      <button type="button" class="btn btn-secondary drag-drop-box--btn" (click)="triggerFileInput()">Selecciona
+        archivo</button>
+
+      <input type="file" #fileInput (change)="onFileSelected($event)" style="display:none;" />
     </div>
 
-    <div *ngIf="files && files.length > 0" class="mt-3 div-select">
+    <div *ngIf="files && files.length > 0" class="mt-1 div-select">
       <h5>Archivos seleccionados:</h5>
-        <p *ngFor="let file of files">{{ file.name }}</p>
+      <p *ngFor="let file of files">{{ file.name }}</p>
     </div>
     <div class="div-upload">
-      <button type="submit" class="btn btn-primary mt-2 div-upload--btn" [disabled]="!uploadForm.valid || files.length === 0">
+      <button type="submit" class="btn btn-primary mt-2 div-upload--btn"
+        [disabled]="!uploadForm.valid || files.length === 0">
         Subir Archivos
       </button>
     </div>
   </form>
 </div>
+
+
+<!-- <div>
+  <div class="card">
+    <iframe src="https://storage.googleapis.com/gestor-documental-bucket/usuarios/1017196164/CRISP-DM.jpg" frameborder="0"></iframe>
+  </div>
+</div> -->

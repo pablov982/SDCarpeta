@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NotificationService } from '../notification/notification.service';
 import { NotifyOpts } from '../notification/notification.model';
+import { DocumentsService } from './documents.service';
 
 @Component({
   selector: 'app-documents',
@@ -12,52 +13,52 @@ export class DocumentsComponent implements OnInit {
 
   @ViewChild('fileInput', { static: false }) fileInput!: ElementRef;
   files: File[] = [];
+  fileTest
   uploadForm!: FormGroup;
-  data= [
-    {
-      name: 'Documento 1',
-      folder: 'Carpeta 1',
-      auth: 'no',
-      url: 'https://www.google.com'
-    },
-    {
-      name: 'Documento 2',
-      folder: 'Carpeta 2',
-      auth: 'si',
-      url: 'https://www.google.com'
-    },
-    {
-      name: 'Documento 3',
-      folder: 'Carpeta 1',
-      auth: 'si',
-      url: 'https://www.google.com'
-    },
-    {
-      name: 'Documento 4',
-      folder: 'Carpeta 2',
-      auth: 'si',
-      url: 'https://www.google.com'
-    }
-  ]
-  
 
-  constructor(private fb: FormBuilder, private notify: NotificationService) { 
+  user = JSON.parse(sessionStorage.getItem('user'))
+  listDocuments = []
+  formData: FormData = new FormData();
+
+
+  constructor(private fb: FormBuilder, private notify: NotificationService, private documentService: DocumentsService) {
     this.uploadForm = this.fb.group({
-      documentName: ['', Validators.required],  // Campo de nombre de documento obligatorio
+      documentName: ['', Validators.required],
+      description: ['', Validators.required],
     });
   }
 
   ngOnInit(): void {
+    this.getListDocuments()
+  }
+
+  getListDocuments() {
+    this.documentService.getListDocumentsUser(this.user.documentId).subscribe((res: any) => {
+      this.listDocuments = res.result
+    })
   }
 
   triggerFileInput(): void {
     this.fileInput.nativeElement.click();
   }
 
-  onFileSelected(event: Event): void {
+  onFileSelected(event: any): void {
     const input = event.target as HTMLInputElement;
+    this.fileTest = event.target.files[0]
     if (input.files) {
       this.files = Array.from(input.files);
+  
+      this.formData = new FormData();
+  
+      this.files.forEach((file) => {
+        this.formData.append('file', file, file.name);
+      });
+  
+      this.uploadForm.patchValue({
+        file: this.files
+      });
+  
+      this.uploadForm.get('file')?.updateValueAndValidity();
     }
   }
 
@@ -77,29 +78,36 @@ export class DocumentsComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (this.uploadForm.valid && this.files.length > 0) {
-      const formData = new FormData();
-      formData.append('documentName', this.uploadForm.get('documentName')?.value);
-      
-      this.files.forEach(file => {
-        formData.append('files', file);
-      });
+    if (this.uploadForm.valid) {
 
-      console.log('Formulario enviado:', formData);
+      let data = {
+        name: this.uploadForm.get('documentName')?.value,
+        description: this.uploadForm.get('description')?.value,
+        verified: false
+      }
+
+      this.documentService.uploadDocument(this.fileTest, data, this.user.documentId).subscribe(res => {
+        let notificacion: NotifyOpts = {
+          title: 'Documento cargado',
+          message: 'El documento ha sido cargado con éxito',
+          icon: 'success',
+          onAccept: () => {
+            this.getListDocuments()
+          }
+        }
+        this.notify.open(notificacion)
+        this.uploadForm.reset()
+        this.files = []
+      }, error => {
+        console.error('Error en la subida de archivos:', error);
+      });
     }
   }
 
-  openNotify(){
-debugger
-    let notificacion: NotifyOpts = {
-      title:'notificación',
-      message: 'Prueba de la notificación',
-      icon:'info'
-
-    }
-
-    this.notify.open(notificacion)
-
+  verifyDocument(idDocument){
+    this.documentService.verifyDocument(idDocument, this.user.documentId).subscribe(res =>{
+      this.getListDocuments()
+    })
   }
 
 }

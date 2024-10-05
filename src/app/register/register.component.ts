@@ -42,8 +42,6 @@ export class RegisterComponent implements OnInit {
 
   registerUserMethod(){
 
-    debugger
-
     let data = {
       documentId: this.registerForm.get('document').value,
       fullName: this.registerForm.get('name').value,

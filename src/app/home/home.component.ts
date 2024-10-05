@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,7 @@ export class HomeComponent implements OnInit {
   folders = false
   request = false
 
-  constructor() { }
+  constructor( private route: Router) { }
 
   ngOnInit(): void {
   }
@@ -56,6 +57,11 @@ export class HomeComponent implements OnInit {
         this.request = true
         break
     }
+  }
+
+  logout(){
+    sessionStorage.removeItem('user')
+    this.route.navigate([''])
   }
 
 }

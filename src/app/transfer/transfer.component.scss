@@ -1,5 +1,25 @@
-.title{
+.title {
     text-align: center;
     margin-top: 3%;
     font-weight: bold;
+}
+
+.p-description-transfer {
+    width: 80%;
+    font-size: 18px;
+}
+.div-form{
+    width: 30%;
+    &--btn{
+        margin-top: 3%;
+        background-color: #244063;
+        color: white;
+    }
+}
+
+.p-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }

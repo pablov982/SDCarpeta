@@ -23,9 +23,7 @@
     }
 
     &__content-image {
-        width: 20%;
-        @media (max-width: 508px) {
-            width: 40%;
-        }
+        width: 40%;
+        
     }
   }

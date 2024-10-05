@@ -29,11 +29,11 @@ export class LoginComponent implements OnInit {
 
   login() {
     let data = {
-      "document": this.loginform.get('document').value,
+      "document": JSON.parse(this.loginform.get('document').value),
       "password": this.loginform.get('password').value,
     }
     this.loginService.login(data).subscribe((res:any) => {
-      sessionStorage.setItem('token', res.result.token)
+      sessionStorage.setItem('user', JSON.stringify(res.result))
       this.router.navigate(['/home'])
     })
   }
